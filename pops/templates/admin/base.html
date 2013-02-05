@@ -16,7 +16,7 @@
 
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% load adminmedia %}{% admin_media_prefix %}css/ie.css{% endblock %}" /><![endif]-->
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% admin_media_prefix %}css/rtl.css{% endblock %}" />{% endif %}
-
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap-wysihtml5/bootstrap-wysihtml5-0.0.2.css">
 {% comment %}
   Make sure that the main styles are the last thing to actually load
 {% endcomment %}
@@ -36,6 +36,8 @@
 <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
 <script src="{{ STATIC_URL }}chosen/chosen.jquery.js"></script>
 <script src="{{ STATIC_URL }}masonry/jquery.masonry.js"></script>
+<script src="{{ STATIC_URL }}wysihtml5/wysihtml5-0.3.0.js"></script>
+<script src="{{ STATIC_URL }}bootstrap-wysihtml5/bootstrap-wysihtml5-0.0.2.js"></script>
 <script src="{{ STATIC_URL }}pops/js/init-ui.js"></script>
 {% endblock %}
 

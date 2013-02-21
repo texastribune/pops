@@ -184,6 +184,7 @@ if (typeof pops.inlineFormSet === 'undefined') {
       tolerance: 'pointer',
       axis: 'y',
       cancel: 'input,button,select,a,textarea',
+      containment: 'tbody',
       helper: 'clone',
       update: updatePositions
     });

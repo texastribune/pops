@@ -64,6 +64,23 @@ $(function() {
 
 {% block coltype %}flex{% endblock %}
 
+{% block search %}{% if cl %}{% search_form cl %}{% endif %}{% endblock %}
+
+{% block messages %}
+  {{ block.super }}
+  {% if cl.formset.errors %}
+    <div class="alert alert-error{% if cl.formset.non_form_errors %} alert-block{% endif %}" data-alert="alert"><a class="close" href="#">x</a>
+      {% blocktrans count cl.formset.errors|length as counter %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
+      {{ cl.formset.non_form_errors }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+{% comment %}
+In the standard django admin, the `object-tools` block is inside #content-main,
+but since this isn't part of the grid, it goes outside in *pops*.
+{% endcomment %}
 {% block object-tools %}
   {% if action_form or has_add_permission or cl %}
     <div class="subnav">
@@ -95,18 +112,6 @@ $(function() {
   {% endif %}
 {% endblock %}
 
-{% block search %}{% if cl %}{% search_form cl %}{% endif %}{% endblock %}
-
-{% block messages %}
-  {{ block.super }}
-  {% if cl.formset.errors %}
-    <div class="alert alert-error{% if cl.formset.non_form_errors %} alert-block{% endif %}" data-alert="alert"><a class="close" href="#">x</a>
-      {% blocktrans count cl.formset.errors|length as counter %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
-      {{ cl.formset.non_form_errors }}
-    </div>
-  {% endif %}
-{% endblock %}
-{% block content %}
   <div id="content-main" class="row-fluid">
 
     <div class="span1{% if cl.has_filters %}0{% else %}2{% endif %}" id="changelist">

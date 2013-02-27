@@ -11,19 +11,7 @@
   <div class="actions pull-right">
     <ul>
       <li class="action-item">
-        <div id="actions-right-alt" class="btn-group pull-left">
-          <a href="history/" class="btn">
-            <i class="icon-time"></i>
-            {% trans "History" %}
-          </a>
-
-          {% if has_absolute_url %}
-            <a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="btn">
-              <i class="icon-share-alt"></i>
-              {% trans "View on site" %}
-            </a>
-          {% endif %}
-        </div>
+        <div id="actions-right-alt" class="btn-group pull-left"></div>
       </li>
 
       <li class="action-item">
@@ -54,3 +42,31 @@
 
   <div style="clear:both;"></div>
 </div>
+
+{% comment %}
+Shiv to take object actions and move them to a prettier place.
+{% endcomment %}
+<script>
+  (function($){
+    // Try to use efficient selectors since this JS isn't deferred.
+    var $objectTools = $('#content-main > ul.object-tools'),
+        $container = $('#actions-right-alt'),
+        // Icons to attach to special buttons. Keep the trailing white space.
+        icons = {
+          historylink: '<i class="icon-time"></i> ',
+          viewsitelink: '<i class="icon-share-alt"></i> '
+        };
+
+    if (!$objectTools.length) { return; }
+
+    $objectTools.hide().find('a').each(function(){
+      var $el = $(this).clone(),
+          icon = icons[$el.attr('class')];
+      if (icon) {
+        $el.prepend(icon);
+      }
+      $el.addClass('btn').appendTo($container);
+    })
+
+  })(window.django.jQuery);
+</script>

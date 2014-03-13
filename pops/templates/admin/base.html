@@ -20,7 +20,7 @@
 {% comment %}
   Make sure that the main styles are the last thing to actually load
 {% endcomment %}
-{% if False %}{# Change this if you want to compile LESS #}
+{% if True %}{# Change this if you want to compile LESS #}
 <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}pops/less/style.less">
 <script src="{{ STATIC_URL }}less.js/less-1.7.0.min.js"></script>
 {% else %}

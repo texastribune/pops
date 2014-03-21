@@ -30,7 +30,7 @@ JQUERY_UI = {
 
 LESS = {
     "source": join(VENDOR_PATH, "less.js", "dist",
-            "less-1.3.0.min.js"),
+            "less-1.7.0.min.js"),
     "dest": join(STATIC_PATH, "less.js"),
 }
 

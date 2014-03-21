@@ -1,9 +1,19 @@
 @import "../../bootstrap/less/bootstrap.less";
 
+@baseFontSize: 13px;  // shrink to match the old font size
 @redbor: 1px solid red;
+@navbarHeight: 36px;  // shrink it a bit to recover some vertical space
 
 h1, ul, li {
     margin: 0;
+}
+
+// Component: Navbar
+
+.navbar .nav > li > a {
+  // hack to reduce whitespace so it fits on one line
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .filtered-content {
@@ -348,7 +358,7 @@ fieldset {
     padding-right: @gridGutterWidth + 8px + 1px;
     padding-left: @gridGutterWidth + 8px + 1px;
     position: fixed;
-    top: 40px;
+    top: @navbarHeight;
     left: 0;
     right: 0;
     z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
@@ -400,6 +410,7 @@ fieldset {
     h2 {
       .border-radius(@dashboardRounding @dashboardRounding 0 0);
       background-color: @grayLighter;
+      margin-bottom: 0;  // fix margin created a gap in the box
       padding-left: @gridGutterWidth;
       border: 1px solid @grayLight;
       border-bottom: 1px solid @grayLight;

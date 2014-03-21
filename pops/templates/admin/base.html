@@ -20,9 +20,9 @@
 {% comment %}
   Make sure that the main styles are the last thing to actually load
 {% endcomment %}
-{% if debug %}
+{% if False %}{# Change this if you want to compile LESS #}
 <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}pops/less/style.less">
-<script src="{{ STATIC_URL }}less.js/less-1.3.0.min.js"></script>
+<script src="{{ STATIC_URL }}less.js/less-1.7.0.min.js"></script>
 {% else %}
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}pops/css/style.css">
 {% endif %}
@@ -128,7 +128,7 @@ $(function(){
 {% if not is_popup %}
 
   {% block header %}
-    <div id="header" class="navbar navbar-fixed-top" data-dropdown="dropdown">
+    <div id="header" class="navbar navbar-inverse navbar-fixed-top" data-dropdown="dropdown">
       <div class="navbar-inner">
         <div class="container-fluid">
 

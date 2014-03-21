@@ -7,7 +7,7 @@ setup(
     author='Travis Swicegood',
     author_email='travis@domain51.com',
     url='https://github.com/tswicegood/pops',
-    packages=['pops'],
+    packages=['pops', 'pops.menu', 'pops.templatetags'],
     include_package_data=True,
     license='Apache License, Version 2.0',
     description="Bootstrap styling for Django's admin",

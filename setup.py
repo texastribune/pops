@@ -16,7 +16,6 @@ setup(
         'django-admin-tools>=0.4.1',
         'BeautifulSoup>=3.2.0',
         'django-appconf>=0.4.1',
-        'django_compressor>=1.3',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',

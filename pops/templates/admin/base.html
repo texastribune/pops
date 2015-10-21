@@ -1,5 +1,6 @@
 {% load theming_tags admin_tools_menu_tags pops bootstrap %}
 {% load url from future %}
+{% load static from staticfiles %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
@@ -10,21 +11,21 @@
 
 {% block css %}
 {% comment %}TODO: Switch this on DEBUG{% endcomment %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}chosen/chosen.css">
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}jquery-ui-bootstrap/css/jquery-ui-1.8.16.custom.css">
-<!--[if IE]><link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}jquery-ui-bootstrap/css/jquery.ui.1.8.16.ie.css"><![endif]-->
+<link rel="stylesheet" type="text/css" href="{% static 'chosen/chosen.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'jquery-ui-bootstrap/css/jquery-ui-1.8.16.custom.css' %}">
+<!--[if IE]><link rel="stylesheet" type="text/css" href="{% static 'jquery-ui-bootstrap/css/jquery.ui.1.8.16.ie.css' %}"><![endif]-->
 
-<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{{ STATIC_URL }}admin/css/ie.css{% endblock %}" /><![endif]-->
-{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{{ STATIC_URL }}admin/css/rtl.css{% endblock %}" />{% endif %}
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static 'admin/css/ie.css' %}{% endblock %}" /><![endif]-->
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static 'admin/css/rtl.css' %}{% endblock %}" />{% endif %}
 
 {% comment %}
   Make sure that the main styles are the last thing to actually load
 {% endcomment %}
 {% if False %}{# Change this if you want to compile LESS #}
-<link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}pops/less/style.less">
-<script src="{{ STATIC_URL }}less.js/less-1.7.0.min.js"></script>
+<link rel="stylesheet/less" type="text/css" href="{% static 'pops/less/style.less' %}">
+<script src="{% static 'less.js/less-1.7.0.min.js' %}"></script>
 {% else %}
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}pops/css/style.css">
+<link rel="stylesheet" type="text/css" href="{% static 'pops/css/style.css' %}">
 {% endif %}
 
 {#{% render_theming_css %}#}
@@ -36,12 +37,12 @@
   window.__admin_media_prefix__ = "{% filter escapejs %}{{ STATIC_URL }}admin/{% endfilter %}";
 </script>
 
-<script src="{{ STATIC_URL }}jquery/jquery.min.js"></script>
-<script src="{{ STATIC_URL }}jquery-ui-bootstrap/js/jquery-ui-1.8.16.custom.min.js"></script>
-<script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
-<script src="{{ STATIC_URL }}chosen/chosen.jquery.js"></script>
-<script src="{{ STATIC_URL }}masonry/jquery.masonry.js"></script>
-<script src="{{ STATIC_URL }}pops/js/init-ui.js"></script>
+<script src="{% static 'jquery/jquery.min.js' %}"></script>
+<script src="{% static 'jquery-ui-bootstrap/js/jquery-ui-1.8.16.custom.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'chosen/chosen.jquery.js' %}"></script>
+<script src="{% static 'masonry/jquery.masonry.js' %}"></script>
+<script src="{% static 'pops/js/init-ui.js' %}"></script>
 {% endblock %}
 
 {% block extrahead %}{% endblock %}

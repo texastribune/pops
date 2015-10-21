@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='pops',
-    version='0.2.0tt4',
+    version='0.2.0tt5',
     author='Travis Swicegood',
     author_email='travis@domain51.com',
     url='https://github.com/tswicegood/pops',

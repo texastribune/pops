@@ -15,7 +15,7 @@
             {{ child.object_repr }}
           </span>
         {% else %}
-          <a href="{{ admin_url }}{{ child.get_admin_url }}"
+          <a href="{{ child.get_admin_url }}"
               class="{% if child.is_addition %} addlink{% endif %}{% if child.is_change %} changelink{% endif %}">
             {% if child.content_type %}
               <span class="content-type">

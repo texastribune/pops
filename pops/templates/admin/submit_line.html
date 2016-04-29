@@ -18,9 +18,13 @@
           </a>
 
           {% if has_absolute_url %}
-            <a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="btn">
-              <i class="icon-share-alt"></i>
-              {% trans "View on site" %}
+            <a href="../../../r/{{ content_type_id }}/{{ object_id }}/" target="_blank" class="btn" title="Preview this item on desktop">
+              <i class="icon-eye-open"></i>
+              {% trans "Desktop" %}
+            </a>
+            <a href="#" target="_blank" onclick="event.preventDefault(); window.open('../../../r/{{ content_type_id }}/{{ object_id }}', '_blank', 'height=667,width=375');" class="btn" title="Preview this item on mobile">
+              <i class="icon-eye-open"></i>
+              {% trans "Mobile" %}
             </a>
           {% endif %}
         </div>
